@@ -8,13 +8,13 @@ public class MenuScreen {
 
         switch ( choice.nextInt() ) {
             case 1:
-                System.out.println("Voyage Screen");
+                VoyageScreen.showVoyages();
                 break;
             case 2:
                 LoginScreen.showLoginMenu();
                 break;
             case 3:
-                System.out.println("Register Screen");
+                RegisterScreen.showRegisterMenu();
                 break;
             case 4:
                 System.out.println("Goodbye!");

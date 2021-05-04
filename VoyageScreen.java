@@ -9,7 +9,7 @@ public class VoyageScreen {
     private static int voyageNo;
     // VOYAGE CLASS NEEDED
 
-    public void displayVoyages() {
+    public static void showVoyages() {
         int i = 0;
         System.out.println("VOYAGES");
         System.out.println("=====================");
