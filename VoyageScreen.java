@@ -1,27 +1,20 @@
-public class VoyageScreen {
-    // VOYAGE CLASS NEEDED
-    private static String[] to =  {"Izmir", "Istanbul", "Ankara", "Adana"};
-    private static String[] from = {"Izmir", "Istanbul", "Ankara", "Adana"};
-    private static int[] price;
-    private static int[] duration;
-    private static int[][] seats;
-    private static int voyageCount;
-    private static int voyageNo;
-    // VOYAGE CLASS NEEDED
+import java.util.Scanner;
 
-    public static void showVoyages() {
-        int i = 0;
+public class VoyageScreen {
+    public static int ticketNo;
+    // VOYAGE MENU THAT LIST AVAILABLE VOYAGES AND BUY TICKETS WITH VOYAGENO
+    public static void voyageMenu() {
+        System.out.println("=====================");
         System.out.println("VOYAGES");
         System.out.println("=====================");
-        for(i=0; i<voyageCount; i++) {
-            // TO
-            // FROM
-            // PRICE
-            // DURATION
-            // AVAILABLE SEATS 
-            // VOYAGE NO
-        }
-        System.out.println("=====================");
-        System.out.println("Enter Voyage Number to Purchase Ticket: ");
+        System.out.println("Here are the available voyages...");
+        Voyage.listVoyages();
+        try(Scanner scanner = new Scanner(System.in)) {
+            System.out.println("=====================");
+            System.out.println("Please Enter Voyage No to Buy Ticket: ");
+            ticketNo = scanner.nextInt();
+            Voyage.checkTicketNo();
     }
 }
+}
+
