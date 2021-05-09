@@ -21,18 +21,48 @@ public class Voyage {
     }
     // ADDING & LISTING VOYAGES
     public static void listVoyages(){
-        voyages.add(new Voyage("Izmir", "Istanbul", 240, 150 , 40, 10203040));
-        voyages.add(new Voyage("Izmir", "Ankara", 300, 160, 40, 10203041));
-        voyages.add(new Voyage("Izmir", "Adana", 500, 250, 40, 10203042));
-        voyages.add(new Voyage("Istanbul", "Izmir", 240, 150 , 40, 10203043));
-        voyages.add(new Voyage("Istanbul", "Ankara", 300, 160, 40, 10203044));
-        voyages.add(new Voyage("Istanbul", "Adana", 500, 250, 40, 10203045));
-        voyages.add(new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046));
-        voyages.add(new Voyage("Ankara", "Izmir", 300, 160, 40, 10203047));
-        voyages.add(new Voyage("Ankara", "Adana", 500, 250, 40, 10203048));
-        voyages.add(new Voyage("Adana", "Istanbul", 240, 150 , 40, 10203049));
-        voyages.add(new Voyage("Adana", "Izmir", 300, 160, 40, 10203050));
-        voyages.add(new Voyage("Adana", "Ankara", 500, 250, 40, 10203051));
+        if(VoyageScreen.isComfort==true) {
+            voyages.add(new Voyage("Izmir", "Istanbul", 240, 150 , 40, 10203040));
+            voyages.add(new Voyage("Izmir", "Ankara", 300, 160, 40, 10203041));
+            voyages.add(new Voyage("Izmir", "Adana", 500, 250, 40, 10203042));
+            voyages.add(new Voyage("Istanbul", "Izmir", 240, 150 , 40, 10203043));
+            voyages.add(new Voyage("Istanbul", "Ankara", 300, 160, 40, 10203044));
+            voyages.add(new Voyage("Istanbul", "Adana", 500, 250, 40, 10203045));
+            voyages.add(new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046));
+            voyages.add(new Voyage("Ankara", "Izmir", 300, 160, 40, 10203047));
+            voyages.add(new Voyage("Ankara", "Adana", 500, 250, 40, 10203048));
+            voyages.add(new Voyage("Adana", "Istanbul", 240, 150 , 40, 10203049));
+            voyages.add(new Voyage("Adana", "Izmir", 300, 160, 40, 10203050));
+            voyages.add(new Voyage("Adana", "Ankara", 500, 250, 40, 10203051));
+        }
+        if(VoyageScreen.isExpress==true) {
+            voyages.add(new Voyage("Izmir", "Istanbul", 180, 150 , 40, 10203040));
+            voyages.add(new Voyage("Izmir", "Ankara", 250, 160, 40, 10203041));
+            voyages.add(new Voyage("Izmir", "Adana", 304, 250, 40, 10203042));
+            voyages.add(new Voyage("Istanbul", "Izmir", 240, 150 , 40, 10203043));
+            voyages.add(new Voyage("Istanbul", "Ankara", 300, 160, 40, 10203044));
+            voyages.add(new Voyage("Istanbul", "Adana", 500, 250, 40, 10203045));
+            voyages.add(new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046));
+            voyages.add(new Voyage("Ankara", "Izmir", 300, 160, 40, 10203047));
+            voyages.add(new Voyage("Ankara", "Adana", 500, 250, 40, 10203048));
+            voyages.add(new Voyage("Adana", "Istanbul", 240, 150 , 40, 10203049));
+            voyages.add(new Voyage("Adana", "Izmir", 300, 160, 40, 10203050));
+            voyages.add(new Voyage("Adana", "Ankara", 500, 250, 40, 10203051));
+        }
+        if(VoyageScreen.isLux==true) {
+            voyages.add(new Voyage("Izmir", "Istanbul", 240, 180 , 40, 10203040));
+            voyages.add(new Voyage("Izmir", "Ankara", 300, 200, 40, 10203041));
+            voyages.add(new Voyage("Izmir", "Adana", 500, 250, 40, 10203042));
+            voyages.add(new Voyage("Istanbul", "Izmir", 240, 150 , 40, 10203043));
+            voyages.add(new Voyage("Istanbul", "Ankara", 300, 160, 40, 10203044));
+            voyages.add(new Voyage("Istanbul", "Adana", 500, 250, 40, 10203045));
+            voyages.add(new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046));
+            voyages.add(new Voyage("Ankara", "Izmir", 300, 160, 40, 10203047));
+            voyages.add(new Voyage("Ankara", "Adana", 500, 250, 40, 10203048));
+            voyages.add(new Voyage("Adana", "Istanbul", 240, 150 , 40, 10203049));
+            voyages.add(new Voyage("Adana", "Izmir", 300, 160, 40, 10203050));
+            voyages.add(new Voyage("Adana", "Ankara", 500, 250, 40, 10203051));
+        }
         // PRINTING ADDED VOYAGES
         for(int i=0;i<voyages.size();i++)
             System.out.println("From: "+voyages.get(i).from+" | To: "+voyages.get(i).to+" | Duration: "+voyages.get(i).duration+" minutes "+" | Price: "+ voyages.get(i).price+ " | Empty Seats: "+ voyages.get(i).numberOfSeats+ " | Voyage No: "+voyages.get(i).voyageNo);
