@@ -39,7 +39,7 @@ public class VoyageScreen {
             System.out.println("Please Enter Voyage No to Buy Ticket: ");
             ticketNo = scanner2.nextInt();
             Voyage.checkTicketNo();
-    }
+        }
 }
 }
 
