@@ -27,7 +27,7 @@ public class MenuScreen {
     public void displayMenu() {
         System.out.println("WELCOME TO THE BESTBUS");
         System.out.println("=====================");
-        System.out.println("1. List&Buy Voyages");
+        System.out.println("1. List & Buy Voyages");
         System.out.println("2. User Login");
         System.out.println("3. User Registration");
         System.out.println("4. Exit");
