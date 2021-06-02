@@ -1,3 +1,5 @@
+package src.BusManagementSystem;
+
 import java.util.Scanner;
 
 public class AdminScreen {

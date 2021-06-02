@@ -1,3 +1,5 @@
+package src.BusManagementSystem;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -6,7 +8,7 @@ public class Voyage {
     private String to;
     private String from;
     private int duration;
-    private double price;
+    private int price;
     private int numberOfSeats;
     private int voyageNo;
     private String busType;
@@ -14,7 +16,7 @@ public class Voyage {
     public static boolean confirmed = false;
 
 
-    public Voyage(String to, String from, int duration, double price, int numberOfSeats, int voyageNo, String busType) {
+    public Voyage(String to, String from, int duration, int price, int numberOfSeats, int voyageNo, String busType) {
         this.to = to;
         this.from = from;
         this.duration = duration;
@@ -101,7 +103,7 @@ public class Voyage {
             System.out.println("Enter duration: ");
             int duration = Integer.parseInt(input.readLine());
             System.out.println("Enter price: ");
-            double price = Integer.parseInt(input.readLine());
+            int price = Integer.parseInt(input.readLine());
             System.out.println("Enter number of seats: ");
             int numberOfSeats = Integer.parseInt(input.readLine());
             System.out.println("Enter voyage no: ");
@@ -118,4 +120,46 @@ public class Voyage {
     public static void deleteVoyage() {
         
     }
+	public String getTo() {
+		return to;
+	}
+	public void setTo(String to) {
+		this.to = to;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getNumberOfSeats() {
+		return numberOfSeats;
+	}
+	public void setNumberOfSeats(int numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
+	}
+	public int getVoyageNo() {
+		return voyageNo;
+	}
+	public void setVoyageNo(int voyageNo) {
+		this.voyageNo = voyageNo;
+	}
+	public String getBusType() {
+		return busType;
+	}
+	public void setBusType(String busType) {
+		this.busType = busType;
+	}
 }
