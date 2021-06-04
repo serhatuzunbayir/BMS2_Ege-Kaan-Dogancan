@@ -1,7 +1,7 @@
 package src.BusManagementSystem;
 
 import java.util.Scanner;
-
+// ADMIN SCREEN NAVIGATOR
 public class AdminScreen {
     public AdminScreen() {
         Scanner choice = new Scanner(System.in);
@@ -24,6 +24,7 @@ public class AdminScreen {
                 break;
         }
     }
+    // ADMIN SCREEN DISPLAY
     public void adminMenu() {
         System.out.println("WELCOME TO THE BESTBUS ADMIN PAGE");
         System.out.println("=====================");

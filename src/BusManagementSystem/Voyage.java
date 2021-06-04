@@ -15,7 +15,6 @@ public class Voyage {
     public static ArrayList<Voyage> voyages = new ArrayList<>();
     public static boolean confirmed = false;
 
-
     public Voyage(String to, String from, int duration, int price, int numberOfSeats, int voyageNo, String busType) {
         this.to = to;
         this.from = from;
@@ -25,7 +24,7 @@ public class Voyage {
         this.voyageNo = voyageNo;
         this.busType = busType;
     }
-    // ADDING & LISTING VOYAGES
+    // ADDING TO ARRAYLIST & LISTING VOYAGES FOR BUS TYPES
     public static void listVoyages(){
         if(VoyageScreen.isComfort==true) {
             voyages.add(new Voyage("Izmir", "Istanbul", 240, 150 , 40, 10203040, "comfort"));
@@ -91,8 +90,9 @@ public class Voyage {
             System.out.println("Voyage Selected.");
         }
     }
+    // BUY TICKET FUNCTION FOR CUSTOMERS
     public static void buyTicket(){}
-
+    // ADDING VOYAGE FUNCTION FOR ADMIN
     public static void addVoyage() {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in)); 
         try {
@@ -117,9 +117,8 @@ public class Voyage {
             System.out.println(e);
         }
     }
-    public static void deleteVoyage() {
-        
-    }
+    // DELETE VOYAGE FUNCTION FOR ADMIN
+    public static void deleteVoyage() {}
 	public String getTo() {
 		return to;
 	}

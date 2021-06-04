@@ -1,5 +1,6 @@
 package src.BusManagementSystem;
 public class User {
+    // USER SETTERS GETTERS AND VARIABLES
 		private String firstName;
         private String lastName;
         private String username;

@@ -25,7 +25,7 @@ public class MenuScreen {
                 break;
         }
     }
-    // MAIN MENU SCREEN
+    // MAIN MENU DISPLAY
     public void displayMenu() {
         System.out.println("WELCOME TO THE BESTBUS");
         System.out.println("=====================");

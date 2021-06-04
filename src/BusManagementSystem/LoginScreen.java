@@ -11,7 +11,7 @@ public class LoginScreen {
         System.out.println("=====================");
         System.out.println("USER LOGIN");
         System.out.println("=====================");
-        // USERNAME & PASSWORD INPUTS 
+        // USERNAME & PASSWORD CHECKPOINT WITH SQL QUERIES FOR REGISTERED USERS ON DATABASE
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
@@ -44,7 +44,7 @@ public class LoginScreen {
         }
     }   
     
-    // BACK TO THE MAIN MENU SCREEN
+    // BACK TO THE MAIN MENU SCREEN & CHECKPOINT FOR IF USER IS ADMIN OR NOT
     public static void backToMenu() {
         System.out.println("Press enter to go back to the menu.");
         Scanner scanner = new Scanner(System.in);
