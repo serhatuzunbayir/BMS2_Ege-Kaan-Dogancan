@@ -8,14 +8,14 @@ import src.BusManagementSystem.Voyage;
 
 public class IsNumberOfSeatsValidTest {
 	@Test
-    public void IsNumberOfSeatsValid(){
+    public void isNumberOfSeatsValid(){
         Voyage voyage = new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046,"comfort");
         int seats = voyage.getNumberOfSeats();
         assertEquals(40,seats);
         }
 	
 	@Test
-    public void IsNumberOfSeatsNotValid(){
+    public void isNumberOfSeatsNotValid(){
         Voyage voyage = new Voyage("Ankara", "Istanbul", 240, 150 , 40, 10203046,"comfort");
         int seats = voyage.getNumberOfSeats();
         assertNotEquals(30,seats);

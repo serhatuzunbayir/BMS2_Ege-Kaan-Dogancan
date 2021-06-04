@@ -3,6 +3,6 @@ package src.BusManagementSystem;
 public class Main {
     
     public static void main(String[] args) {
-        var menu = new MenuScreen();
+        MenuScreen menu = new MenuScreen();
     }
 }

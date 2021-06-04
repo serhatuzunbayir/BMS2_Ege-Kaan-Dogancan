@@ -1,6 +1,6 @@
 package src.BusManagementSystem;
 public class User {
-        private String firstName;
+		private String firstName;
         private String lastName;
         private String username;
         private String password;
@@ -8,6 +8,15 @@ public class User {
         public static boolean isLoggedIn = false;
         public static boolean isAdmin = false;
 
+        public User(String firstName, String lastName, String username, String password, String hesCode) {
+    		
+    		this.firstName = firstName;
+    		this.lastName = lastName;
+    		this.username = username;
+    		this.password = password;
+    		this.hesCode = hesCode;
+    	}
+        
         public String getFirstName() {
             return this.firstName;
         }

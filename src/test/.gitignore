@@ -10,3 +10,7 @@
 /IsNumberOfSeatsValidTest.class
 /IsVoyageNoValidTest.class
 /IsBusTypeValidTest.class
+/IsUsernameValidTest.class
+/IsPasswordValidTest.class
+/IsHesCodeValidTest.class
+/IsDurationValidTest.class
