@@ -35,12 +35,16 @@ public class VoyageScreen {
                 System.out.println("Here are the available voyages...");
                 Voyage.listVoyages();
         }
-        
+        if(User.isAdmin == false) {
         try(Scanner scanner2 = new Scanner(System.in)) {
             System.out.println("=====================");
             System.out.println("Please Enter Voyage No to Buy Ticket: ");
             ticketNo = scanner2.nextInt();
             Voyage.checkTicketNo();
+        }
+        }
+        if(User.isAdmin == true) {
+            LoginScreen.backToMenu();
         }
 }
 }
