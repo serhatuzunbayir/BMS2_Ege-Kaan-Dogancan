@@ -1,6 +1,7 @@
 package src.BusManagementSystem;
 
 import java.io.BufferedReader;
+import java.util.Scanner;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
@@ -68,8 +69,10 @@ public class Voyage {
             voyages.add(new Voyage("Adana", "Izmir", 300, 160, 40, 10203050, "lux"));
             voyages.add(new Voyage("Adana", "Ankara", 500, 250, 40, 10203051, "lux"));
         }
-        // PRINTING ADDED VOYAGES
-        for(int i=0;i<voyages.size();i++)
+    }
+    // PRINTING ADDED VOYAGES
+    public static void printVoyages() {
+    	for(int i=0;i<voyages.size();i++)
             System.out.println(i+") "+"From: "+voyages.get(i).from+" | To: "+voyages.get(i).to+" | Duration: "+voyages.get(i).duration+" minutes "+" | Price: "+ voyages.get(i).price+ " | Empty Seats: "+ voyages.get(i).numberOfSeats+ " | Voyage No: "+voyages.get(i).voyageNo);
     }
     // CHECKING TICKETNO IF IT'S MATCH WITH THE VOYAGENO
@@ -118,7 +121,20 @@ public class Voyage {
         }
     }
     // DELETE VOYAGE FUNCTION FOR ADMIN
-    public static void deleteVoyage() {}
+    public static void deleteVoyage(){
+        printVoyages();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please enter voyage number to delete a voyage: ");
+        int voyageNumber = input.nextInt();
+        for(int i = 0; i<voyages.size(); i++) {
+            if(voyageNumber == voyages.get(i).voyageNo){
+                voyages.remove(i);
+                break;
+            }
+        }
+        System.out.println("Deleted Successfully");
+        LoginScreen.backToMenu();
+    }
 	public String getTo() {
 		return to;
 	}
