@@ -11,7 +11,7 @@ public class AdminScreen {
                 Voyage.addVoyage();
                 break;
             case 2:
-                // VoyageScreen.deleteVoyage();
+                Voyage.deleteVoyage();
                 break;
             case 3:
                 // User.deleteUser();
@@ -31,7 +31,7 @@ public class AdminScreen {
         System.out.println("1. Add Voyage");
         System.out.println("2. Delete Voyage");
         System.out.println("3. Delete User");
-        System.out.println("4. Exit");
+        System.out.println("4. List Voyages");
         System.out.println("=====================");
         System.out.println("Enter choice: ");
     }
