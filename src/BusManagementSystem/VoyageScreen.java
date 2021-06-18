@@ -40,12 +40,17 @@ public class VoyageScreen {
             System.out.println("=====================");
             System.out.println("Please Enter Voyage No to Buy Ticket: ");
             ticketNo = scanner2.nextInt();
-            Voyage.checkTicketNo();
+            Voyage.checkTicketNo(ticketNo);
+            LoginScreen.backToMenu();
         }
         }
         if(User.isAdmin == true) {
             LoginScreen.backToMenu();
         }
 }
+    public static void busVisual() {
+    	System.out.println("================================================================");
+    	System.out.println("FROM:		TO:			");
+    }
 }
 
