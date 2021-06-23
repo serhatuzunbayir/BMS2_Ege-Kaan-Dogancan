@@ -1,5 +1,9 @@
 package src.BusManagementSystem;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class VoyageScreen {
@@ -36,21 +40,11 @@ public class VoyageScreen {
                 Voyage.listVoyages();
         }
         if(User.isAdmin == false) {
-        try(Scanner scanner2 = new Scanner(System.in)) {
-            System.out.println("=====================");
-            System.out.println("Please Enter Voyage No to Buy Ticket: ");
-            ticketNo = scanner2.nextInt();
-            Voyage.checkTicketNo(ticketNo);
             LoginScreen.backToMenu();
-        }
         }
         if(User.isAdmin == true) {
             LoginScreen.backToMenu();
         }
-}
-    public static void busVisual() {
-    	System.out.println("================================================================");
-    	System.out.println("FROM:		TO:			");
     }
 }
 
