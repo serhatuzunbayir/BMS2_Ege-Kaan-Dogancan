@@ -11,17 +11,21 @@ public class LoginScreen {
         System.out.println("=====================");
         System.out.println("USER LOGIN");
         System.out.println("=====================");
+        
         // USERNAME & PASSWORD CHECKPOINT WITH SQL QUERIES FOR REGISTERED USERS ON DATABASE
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
             Statement stmt = con.createStatement();
+            Statement stmt2 = con.createStatement();
             System.out.println("Enter username: ");
             String username = br.readLine().trim();
             System.out.println("Enter password: ");
             String password = br.readLine().trim();
             String sqlQuery = "select username,password from bmsUsers where username = '"+username+"' and password = '"+password+"'";
+            String sqlQuery2 = "select userID from bmsUsers where username = '"+username+"' and password = '"+password+"'";
             ResultSet rs = stmt.executeQuery(sqlQuery);
+            ResultSet rs2 = stmt2.executeQuery(sqlQuery2);
             int count = 0;
             while(rs.next()) {
                 count = count+1;
@@ -33,6 +37,9 @@ public class LoginScreen {
                 }
                 System.out.println("You are successfully logged in...");
                 User.isLoggedIn = true;
+                while(rs2.next()) {
+                	User.ID = rs2.getString(1);
+                }
                 backToMenu();
             }
             else {
