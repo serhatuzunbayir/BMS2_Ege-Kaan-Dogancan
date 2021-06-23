@@ -3,6 +3,7 @@ package src.BusManagementSystem;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.*;
+import java.util.Random;
 
 public class RegisterScreen {
     // CREATING ACCOUNT SCREEN WITH INPUTS OF NAME, USERNAME, PASSWORD, HESCODE
@@ -12,7 +13,7 @@ public class RegisterScreen {
         System.out.println("USER REGISTERATION");
         System.out.println("=====================");
         try {
-            String sqlQuery = "insert bmsUsers values(?,?,?,?,?,?,?)";
+            String sqlQuery = "insert bmsUsers values(?,?,?,?,?,?,?,?)";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
             PreparedStatement ps = con.prepareStatement(sqlQuery);
@@ -33,25 +34,19 @@ public class RegisterScreen {
             ps.setString(5, hesCode);
             int voyagePoints = 0;
             int isAdmin = 0;
+            Random rand = new Random();
+            int userID = rand.nextInt(1000);
             ps.setInt(6, voyagePoints);
             ps.setInt(7, isAdmin);
+            ps.setInt(8, userID);
             ps.executeUpdate();
             System.out.println("=====================");
             System.out.println("Account created successfully.");
             LoginScreen.backToMenu();
-            //MenuScreen menu = new MenuScreen();
         }
         catch(Exception e)
         {
             System.out.println(e);
         }
     }
-    // // PRINTING CREATED USER 
-    // private void printRegisteredUser(Registration register) {
-    //     System.out.println(register.getFirstName());
-    //     System.out.println(register.getLastName());
-    //     System.out.println(register.getUsername());
-    //     System.out.println(register.getPassword());
-    //     System.out.println(register.getHesCode());
-    // } 
 }
