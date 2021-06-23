@@ -4,31 +4,67 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class MenuScreen {
+	
     // MAIN MENU NAVIGATOR
     public MenuScreen() {
-        Scanner choice = new Scanner(System.in);
-        displayMenu();
-        switch ( choice.nextInt() ) {
-            case 1:
-                VoyageScreen.voyageMenu();
-                break;
-            case 2:
-                Voyage.buyTicket();
-                break;
-            case 3:
-            	LoginScreen.showLoginMenu();
-                break;
-            case 4:
-            	RegisterScreen.showRegisterMenu();
-                break;
-            case 5:
-                System.out.println("Goodbye!");
-                break;
-            default:
-                System.out.println("Error");
-                break;
-        }
-    }
+    	try {
+    		Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection con = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
+	        Statement stmt = con.createStatement();
+	        Scanner choice = new Scanner(System.in);
+	        if(User.isLoggedIn == true) {
+	        	isLoggedInDisplayMenu();
+	        }
+	        else {
+	        	displayMenu();
+	        }
+	        switch ( choice.nextInt() ) {
+	            case 1:
+	                Voyage.printVoyages();
+	                break;
+	            case 2:
+	            	if(User.isLoggedIn == false) {
+		                System.out.println("You must login to the system for purchasing ticket...");
+		                LoginScreen.backToMenu();
+	            	}
+	            	else {
+	            		Ticket.buyTicket();
+	            		break;
+	            	}
+	            case 3:
+	            	if(User.isLoggedIn == true && Ticket.isSold == false) {
+	            		System.out.println("You need to buy ticket first!");
+	    	    		LoginScreen.backToMenu();
+	            	}
+	            	else if(User.isLoggedIn == true && Ticket.isSold == true) {
+	            		Ticket.displayTicket();
+	            		break;
+	            	}	            	
+	            	else {
+		            	LoginScreen.showLoginMenu();
+	            		break;
+	            	}
+	            case 4:
+	            	if(User.isLoggedIn == true) {
+	                    System.out.println("Goodbye!");                    
+	                    break;
+	            	}
+	            	else {
+	            		RegisterScreen.showRegisterMenu();
+	            		break;
+	            	}
+	            case 5:
+	                System.out.println("Goodbye!");
+	                break;
+	            default:
+	                System.out.println("Error");
+	                break;
+	        }  }
+	        catch (Exception e) {
+	        	System.out.println(e);
+	        }
+    	}
+    
     // MAIN MENU DISPLAY
     public void displayMenu() {
         System.out.println("WELCOME TO THE BESTBUS");
@@ -41,31 +77,34 @@ public class MenuScreen {
         System.out.println("=====================");
         System.out.println("Enter choice: ");
     }
-    // YENI CLASS OLUSTUR
-    public static Connection conn=null;
-    public static Statement stmt=null;
-    public static PreparedStatement prepstmt=null;
-    public static String driver = "org.sqlite.JDBC";
-    public static ResultSet rs = null;
-    static Statement [] tables;
     
-    //to establish connection to database
-    public static Connection openConnection() throws Exception {
+    // LOGGED IN USER MENU DISPLAY
+    public void isLoggedInDisplayMenu() {
     	try {
-		    //declaring a driver
-		   // Driver d = (Driver)Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-		    DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-		    conn = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
-	        stmt = conn.createStatement();
-		    if (conn!= null) {
-		    	System.out.println ("Database connection established.");
-		    	}
-		    }
-	    catch (Exception e) {
-		    System.out.println ("Database connection failed.");
-		    e.printStackTrace();
-	    }
-
-    return conn;
-}
+    		String sqlQuery = "select voyagePoints from bmsUsers where userID = '"+User.ID+"'";
+    		String sqlQuery2 = "select firstName from bmsUsers where userID = '"+User.ID+"'";
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+	        Connection con = DriverManager.getConnection("jdbc:mysql://94.130.57.82/appsplat_semih", "appsplat_semih", "semihsemih123");
+	        Statement stmt = con.createStatement();
+	        Statement stmt2 = con.createStatement();
+	        ResultSet rs = stmt.executeQuery(sqlQuery);
+	        ResultSet rs2 = stmt2.executeQuery(sqlQuery2);
+	        while(rs.next() && rs2.next()) {
+	    		User.ticketName = rs2.getString(1);
+	    		System.out.println("WELCOME TO THE BESTBUS "+User.ticketName+" :)");
+	            System.out.println("=====================");
+	            System.out.println("Your points: " + rs.getString(1));
+	            System.out.println("=====================");
+	            System.out.println("1. List Voyages");
+	            System.out.println("2. Buy Ticket");
+	            System.out.println("3. Display Ticket");
+	            System.out.println("4. Exit");
+	            System.out.println("=====================");
+	            System.out.println("Enter choice: ");
+	        }
+    	}
+    	catch (Exception e) {
+    		System.out.println(e);
+    	}	
+    }   
 }
